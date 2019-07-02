@@ -1,0 +1,118 @@
+{
+  "name": "AlarmStateMachine",
+  "events": [
+    {
+      "name": "LOCK",
+      "type": "input"
+    },
+    {
+      "name": "LOCKx2",
+      "type": "input"
+    },
+    {
+      "name": "UNLOCK",
+      "type": "input"
+    },
+    {
+      "name": "UNLOCKx2",
+      "type": "input"
+    }
+  ],
+  "states": [
+    {
+      "name": "AlarmDisarmed_AllUnlocked"
+    },
+    {
+      "name": "AlarmDisarmed_DriverUnlocked"
+    },
+    {
+      "name": "AlarmDisarmed_AllLocked"
+    },
+    {
+      "name": "AlarmArmed_AllLocked"
+    }
+  ],
+  "transitions": [
+    {
+      "from": "AlarmDisarmed_AllUnlocked",
+      "to": "AlarmDisarmed_AllLocked",
+      "trigger": "LOCK"
+    },
+    {
+      "from": "AlarmDisarmed_AllUnlocked",
+      "to": "AlarmArmed_AllLocked",
+      "trigger": "LOCKx2"
+    },
+    {
+      "from": "AlarmDisarmed_AllUnlocked",
+      "to": "AlarmDisarmed_AllUnlocked",
+      "trigger": "UNLOCK"
+    },
+    {
+      "from": "AlarmDisarmed_AllUnlocked",
+      "to": "AlarmDisarmed_AllUnlocked",
+      "trigger": "UNLOCKx2"
+    },
+    {
+      "from": "AlarmDisarmed_DriverUnlocked",
+      "to": "AlarmDisarmed_AllLocked",
+      "trigger": "LOCK"
+    },
+    {
+      "from": "AlarmDisarmed_DriverUnlocked",
+      "to": "AlarmArmed_AllLocked",
+      "trigger": "LOCKx2"
+    },
+    {
+      "from": "AlarmDisarmed_DriverUnlocked",
+      "to": "AlarmDisarmed_DriverUnlocked",
+      "trigger": "UNLOCK"
+    },
+    {
+      "from": "AlarmDisarmed_DriverUnlocked",
+      "to": "AlarmDisarmed_AllUnlocked",
+      "trigger": "UNLOCKx2"
+    },
+    {
+      "from": "AlarmDisarmed_AllLocked",
+      "to": "AlarmDisarmed_AllLocked",
+      "trigger": "LOCK"
+    },
+    {
+      "from": "AlarmDisarmed_AllLocked",
+      "to": "AlarmArmed_AllLocked",
+      "trigger": "LOCKx2"
+    },
+    {
+      "from": "AlarmDisarmed_AllLocked",
+      "to": "AlarmDisarmed_DriverUnlocked",
+      "trigger": "UNLOCK"
+    },
+    {
+      "from": "AlarmDisarmed_AllLocked",
+      "to": "AlarmDisarmed_AllUnlocked",
+      "trigger": "UNLOCKx2"
+    },
+    {
+      "from": "AlarmArmed_AllLocked",
+      "to": "AlarmArmed_AllLocked",
+      "trigger": "LOCK"
+    },
+    {
+      "from": "AlarmArmed_AllLocked",
+      "to": "AlarmArmed_AllLocked",
+      "trigger": "LOCKx2"
+    },
+    {
+      "from": "AlarmArmed_AllLocked",
+      "to": "AlarmDisarmed_DriverUnlocked",
+      "trigger": "UNLOCK"
+    },
+    {
+      "from": "AlarmArmed_AllLocked",
+      "to": "AlarmDisarmed_AllUnlocked",
+      "trigger": "UNLOCKx2"
+    }
+  ],
+  "initialState": "AlarmDisarmed_AllUnlocked"
+}
