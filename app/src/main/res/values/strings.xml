@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">FSM_AlarmSystem</string>
+
+    <!--AlarmSystem buttons -->
+    <string name="button_lock">LOCK</string>
+    <string name="button_lockX2">LOCKx2</string>
+    <string name="button_unlock">UNLOCK</string>
+    <string name="button_unlockX2">UNLOCKx2</string>
+</resources>
