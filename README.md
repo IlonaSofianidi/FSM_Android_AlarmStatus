@@ -1,6 +1,6 @@
 # FSM_Android_AlarmStatus
 
-Simple android project implementation of Alarm System Final State Machine(FSM)
+Simple android project implementation of Alarm System Finite State Machine(FSM)
 
 ## Technologies
 - Java 8
